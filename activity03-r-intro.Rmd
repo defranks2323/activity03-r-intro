@@ -1,6 +1,6 @@
 ---
 title: "Activity 3"
-author: "Team Name"
+author: "Sam DeFrank"
 output: github_document
 ---
 
@@ -31,20 +31,20 @@ Create three vectors that contain: 1) the lower case letters, 2) the lower case 
 ```{r}
 lower_case <- c("a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z")
 
-upper_case <- c("A", "B", "C", "D", "E", "F", "G", "H" "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z")
+upper_case <- c("A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z")
 
-punctuation <- c(".", ",", "!", "?", "'", """, "(", ")", " ", "-", ";", ":")
+punctuation <- c(".", ",", "!", "?", "'", "(", ")", "+", "-", ";", ":", "\"")
 ```
 
 Comment on what you noticed about the errors and how you used this information to correct the issues.
 
 **Response**:
-
+I noticed that the problem was the quotation marks affecting the separating commas. To fix this I just removed them 
 
 Make one long vector containing all the symbols.
 
 ```{r}
-my_symbols <- cbind(lower_case, upper_case, punctuation)
+my_symbols <- c(lower_case, upper_case, punctuation)
 ```
 
 Comment on what you noticed about the errors and how you used this information to correct the issues.
@@ -55,8 +55,8 @@ Comment on what you noticed about the errors and how you used this information t
 Turn the `my_symbols` vector into a data frame, with the variable name "Symbol".
 
 ```{r}
-my_symbols <- dataframe(my_symbols)
-names(my_symbols) = Symbol
+my_symbols <- as.data.frame(my_symbols)
+names(my_symbols)= "Symbols" 
 ```
 
 Comment on what you noticed about the errors and how you used this information to correct the issues.
@@ -67,7 +67,7 @@ Comment on what you noticed about the errors and how you used this information t
 Find the total number of symbols we have in our data frame.  
 
 ```{r}
-len <- length(my_symbols)
+len <- nrow(my_symbols)
 ```
 
 Comment on what you noticed about the errors and how you used this information to correct the issues.
@@ -78,14 +78,13 @@ Comment on what you noticed about the errors and how you used this information t
 5. Create a new variable in your dataframe that assigns a number to each symbol.
 
 ```{r}
-my_symbols%Num <- 1:len
+my_symbols$Num <- 1:len
 ```
 
 Comment on what you noticed about the errors and how you used this information to correct the issues.
 
 **Response**:
-
-
+The percent sign was wrong and instead we needed a dollar sign
 
 ![](README-img/noun_pause.png) **Planned Pause Point**: If things made sense, feel free to continue on while you wait. Otherwise, contact your instructor to have them verify your work.
 
@@ -112,6 +111,11 @@ Write your own code to complete the steps below.
 4. Square every number.
 
 ```{r}
+top_secret <- as.data.frame(top_secret)
+top_secret <- (14+top_secret) * 18
+top_secret <- top_secret - 257
+top_secret <- exp(top_secret)
+top_secret <- top_secret ^2
 
 ```
 
@@ -125,7 +129,7 @@ Write your own code to complete the steps below.
 10. Turn your matrix back into a vector.
 
 ```{r}
-
+top_secret <- c(top_secret)
 ```
 
 **HQ UPDATE:** Headquarters has informed you that at this stage of decoding, all numbers in indices 500 and beyond are below 100.
